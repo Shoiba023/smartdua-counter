@@ -3,7 +3,7 @@ const totalCountDiv = document.getElementById("totalCount");
 const refreshBtn = document.getElementById("refreshBtn");
 
 // ✅ Use your updated Web App URL here:
-const endpoint = "https://script.google.com/macros/s/AKfyc...6GH6Dptw/exec";
+const endpoint = https://script.google.com/macros/s/AKfycbxRI0MVcqSKrAZO5D-g5EfXFaEVoyAJ0PnJItkN8Vm8QULvmsdvgdf1Nlb4Ew6GH6Dptw/exec
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
