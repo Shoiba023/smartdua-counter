@@ -1,119 +1,69 @@
-/* General Reset */
 body {
+  font-family: sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
   background-color: #f9f9f9;
   color: #333;
-}
-
-/* Logo Image */
-.logo {
-  width: 60px;
-  height: auto;
-  display: block;
-  margin: 0 auto 10px;
-}
-
-/* Main Container */
-.container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* Heading */
-h1 {
-  color: #74B9FF;
-  margin-bottom: 1.5rem;
+header {
+  background-color: #74B9FF;
+  padding: 20px;
 }
 
-/* Input & Form Styles */
+.logo {
+  height: 60px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+form {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  gap: 10px;
+}
+
 input {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
 button {
-  background-color: #F1C40F;
-  color: white;
-  padding: 0.75rem;
+  padding: 10px;
   border: none;
-  width: 100%;
+  border-radius: 6px;
   font-weight: bold;
-  border-radius: 10px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  background-color: #d4ac0d;
-}
-
-/* Summary Section */
-.summary {
-  margin-top: 2rem;
-  background-color: #f1f8ff;
-  padding: 1rem;
-  border-radius: 10px;
-}
-
-/* Dashboard Table */
-.dashboard {
-  margin-top: 2rem;
-  text-align: left;
-  background-color: #fef9e7;
-  padding: 1rem;
-  border-radius: 10px;
-  overflow-x: auto;
-  font-size: 0.95rem;
-}
-
-#dashboardTable table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-#dashboardTable th, #dashboardTable td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#dashboardTable th {
-  background-color: #F1C40F;
+#submitBtn {
+  background-color: #74B9FF;
   color: white;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  color: #888;
+#refreshBtn {
+  background-color: #F1C40F;
+  color: #000;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .container {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
+.button-group {
+  margin: 20px;
+}
 
-  h1 {
-    font-size: 1.5rem;
-  }
+#totalCount {
+  font-size: 1.2em;
+  margin: 20px;
+  color: #74B9FF;
+}
 
-  button {
-    font-size: 0.95rem;
-  }
+footer {
+  background-color: #F1C40F;
+  padding: 10px;
+  font-size: 0.9em;
 }
