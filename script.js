@@ -1,55 +1,43 @@
-// Replace with your actual Google Sheets Script Web App URLs
-const TOTAL_COUNT_URL = "https://script.google.com/macros/s/AKfycbx-BXENlELel8B6jINa-RnUAj3Q0DxQfH6dWFkfVc_gycRshnJ_db5KApe3Qn_WlVl9qg/exec?action=total";
-const DASHBOARD_URL = "https://script.google.com/macros/s/AKfycbx-BXENlELel8B6jINa-RnUAj3Q0DxQfH6dWFkfVc_gycRshnJ_db5KApe3Qn_WlVl9qg/exec?action=dashboard";
+const form = document.getElementById("duaForm");
+const totalCountDiv = document.getElementById("totalCount");
+const refreshBtn = document.getElementById("refreshBtn");
 
-// Refresh Total Count
-document.getElementById("refreshTotal").addEventListener("click", () => {
-  fetch(TOTAL_COUNT_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      document.getElementById("totalCount").textContent = data.total || 0;
-    })
-    .catch((err) => {
-      console.error("Error fetching total count:", err);
-      alert("Failed to load total count.");
+// ✅ Use your updated Web App URL here:
+const endpoint = "https://script.google.com/macros/s/AKfyc...6GH6Dptw/exec";
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  data.timestamp = new Date().toISOString();
+
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
     });
-});
 
-// Refresh Dashboard Table
-document.getElementById("refreshDashboard").addEventListener("click", () => {
-  fetch(DASHBOARD_URL)
-    .then((res) => res.json())
-    .then((data) => {
-      renderDashboard(data);
-    })
-    .catch((err) => {
-      console.error("Error fetching dashboard:", err);
-      alert("Failed to load dashboard.");
-    });
-});
-
-// Render Dashboard Table
-function renderDashboard(data) {
-  const tableContainer = document.getElementById("dashboardTable");
-  if (!data || !Array.isArray(data) || data.length === 0) {
-    tableContainer.innerHTML = "<p>No data available.</p>";
-    return;
+    if (res.ok) {
+      alert("✅ Dua submitted successfully!");
+      form.reset();
+    } else {
+      alert("❌ Submission failed.");
+    }
+  } catch (err) {
+    alert("⚠️ Network error.");
+    console.error(err);
   }
+});
 
-  let tableHTML = "<table><thead><tr><th>Group</th><th>Dua</th><th>Total Count</th></tr></thead><tbody>";
-  data.forEach((item) => {
-    tableHTML += `<tr>
-        <td>${item.group}</td>
-        <td>${item.dua}</td>
-        <td>${item.total}</td>
-      </tr>`;
-  });
-  tableHTML += "</tbody></table>";
-  tableContainer.innerHTML = tableHTML;
-}
-
-// Auto-load on page load
-window.addEventListener("load", () => {
-  document.getElementById("refreshTotal").click();
-  document.getElementById("refreshDashboard").click();
+refreshBtn.addEventListener("click", async () => {
+  try {
+    const res = await fetch(endpoint + "?action=total");
+    const result = await res.json();
+    totalCountDiv.textContent = `Total Duas: ${result.total || 0}`;
+  } catch (err) {
+    totalCountDiv.textContent = "⚠️ Failed to load total.";
+    console.error(err);
+  }
 });
