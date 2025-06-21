@@ -6,16 +6,6 @@ body {
   color: #333;
 }
 
-/* Header Branding */
-header {
-  background-color: #74B9FF;
-  padding: 1rem;
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
 /* Logo Image */
 .logo {
   width: 60px;
@@ -32,16 +22,17 @@ header {
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Form Styles */
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+/* Heading */
+h1 {
+  color: #74B9FF;
+  margin-bottom: 1.5rem;
 }
 
-input, select {
+/* Input & Form Styles */
+input {
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 1rem;
@@ -60,10 +51,46 @@ button {
   border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
   background-color: #d4ac0d;
+}
+
+/* Summary Section */
+.summary {
+  margin-top: 2rem;
+  background-color: #f1f8ff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Dashboard Table */
+.dashboard {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #fef9e7;
+  padding: 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+#dashboardTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#dashboardTable th, #dashboardTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#dashboardTable th {
+  background-color: #F1C40F;
+  color: white;
 }
 
 /* Footer */
@@ -82,7 +109,11 @@ footer {
     padding: 1.5rem;
   }
 
-  header {
-    font-size: 1.25rem;
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 0.95rem;
   }
 }
