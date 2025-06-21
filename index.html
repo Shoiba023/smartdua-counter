@@ -2,34 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SmartDua Counter</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="SmartDua Logo" class="logo" />
+
+  <!-- Logo -->
+  <div style="text-align: center; margin-top: 20px;">
+    <img src="assets/logo.png" alt="SmartDua Logo" width="120" />
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
     <h1>SmartDua Counter</h1>
-    <p class="tagline">Track, Reflect, and Grow with Every Dua</p>
-  </header>
+    <!-- Form and other content goes here -->
+  </div>
 
+  <!-- JS -->
+  <script src="submit.js"></script>
+  
   <main>
-    <form id="duaForm">
-      <label for="group">Group Name</label>
-      <input type="text" id="group" name="group" required />
+  <form id="duaForm">
+  <input name="group" placeholder="Group Name" required />
+  <input name="name" placeholder="Your Name" required />
+  <input name="dua" placeholder="Dua Title" required />
+  <input name="count" placeholder="Count" type="number" required />
+  <input name="location" placeholder="Location" />
+  <input name="notes" placeholder="Notes (optional)" />
+  <button type="submit">Submit Dua</button>
+</form>
 
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required />
+<script src="submit.js"></script>
 
-      <label for="dua">Dua</label>
-      <input type="text" id="dua" name="dua" required />
-
-      <label for="count">Count</label>
-      <input type="number" id="count" name="count" min="1" required />
-
-      <button type="submit">Submit</button>
-    </form>
 
     <div class="summary">
       <button id="refreshTotal">Refresh Total Count</button>
