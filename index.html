@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SmartDua Counter</title>
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -16,44 +18,42 @@
     <img src="assets/logo.png" alt="SmartDua Logo" width="120" />
   </div>
 
-  <!-- Main Content -->
+  <!-- Main Container -->
   <div class="container">
     <h1>SmartDua Counter</h1>
-    <!-- Form and other content goes here -->
-  </div>
 
-  <!-- JS -->
-  <script src="submit.js"></script>
-  
-  <main>
-  <form id="duaForm">
-  <input name="group" placeholder="Group Name" required />
-  <input name="name" placeholder="Your Name" required />
-  <input name="dua" placeholder="Dua Title" required />
-  <input name="count" placeholder="Count" type="number" required />
-  <input name="location" placeholder="Location" />
-  <input name="notes" placeholder="Notes (optional)" />
-  <button type="submit">Submit Dua</button>
-</form>
+    <!-- Dua Form -->
+    <form id="duaForm">
+      <input name="group" placeholder="Group Name" required />
+      <input name="name" placeholder="Your Name" required />
+      <input name="dua" placeholder="Dua Title" required />
+      <input name="count" placeholder="Count" type="number" required />
+      <input name="location" placeholder="Location" />
+      <input name="notes" placeholder="Notes (optional)" />
+      <button type="submit">Submit Dua</button>
+    </form>
 
-<script src="submit.js"></script>
-
-
+    <!-- Total Count Section -->
     <div class="summary">
       <button id="refreshTotal">Refresh Total Count</button>
       <p>Total Count: <span id="totalCount">Loading...</span></p>
     </div>
 
+    <!-- Dashboard Section -->
     <div class="dashboard">
       <button id="refreshDashboard">Refresh Dashboard</button>
       <div id="dashboardTable">Loading dashboard...</div>
     </div>
-  </main>
+  </div>
 
+  <!-- Footer -->
   <footer>
     <p>🌙 Built with ❤️ by Shoiba | Smart Tools for Smart People</p>
   </footer>
 
+  <!-- Scripts -->
+  <script src="submit.js"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
