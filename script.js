@@ -1,30 +1,28 @@
-document.getElementById('duaForm').addEventListener('submit', function(e) {
+document.getElementById("duaForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const group = document.getElementById('group').value;
-  const name = document.getElementById('name').value;
-  const dua = document.getElementById('dua').value;
-  const count = document.getElementById('count').value;
+  const form = e.target;
+  const data = {
+    group: form.group.value,
+    name: form.name.value,
+    dua: form.dua.value,
+    count: form.count.value,
+    location: form.location.value,
+    notes: form.notes.value
+  };
 
-  fetch("YOUR_WEB_APP_URL", {
+  fetch("https://script.google.com/macros/s/AKfycbx-BXENlELel8B6jINa-RnUAj3Q0DxQfH6dWFkfVc_gycRshnJ_db5KApe3Qn_WlVl9qg/exec", {
     method: "POST",
-    body: JSON.stringify({
-      group,
-      name,
-      dua,
-      count
-    }),
+    body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
     }
-  })
-  .then(res => res.json())
-  .then(data => {
-    alert("✅ Your dua has been submitted!");
-    document.getElementById('duaForm').reset();
-  })
-  .catch(err => {
-    console.error("Error:", err);
-    alert("❌ Failed to submit. Please try again.");
+  }).then(res => {
+    if (res.ok) {
+      alert("Dua submitted successfully!");
+      form.reset();
+    } else {
+      alert("Submission failed.");
+    }
   });
 });
