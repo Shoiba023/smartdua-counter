@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbwG6EHvvjbk-koZmQh5Fl3PqFHjkFfWOKvFi-mW1Awh7o6N0Ea-Xu3nk5WzzcOpFDJW4Q/exec"; // <-- Replace this!
+const scriptURL = "https://script.google.com/macros/s/AKfycbxyNSddgTIG-RJ0tiiBZP8u7RV4DVqsSQN7cKVXl_P01oCD6pC-O3PSXUa_wVE1gEQCBw/exec"; // <-- Replace this!
 
 document.getElementById("duaForm").addEventListener("submit", async function (e) {
   e.preventDefault();
