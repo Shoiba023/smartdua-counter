@@ -8,34 +8,27 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <header>
-    <img src="assets/logo.png" alt="SmartDua Counter Logo" class="logo" />
-   <h1>SmartDua Counter</h1>
-</header>
+  <div class="container">
+    <img src="assets/logo.png" alt="SmartDua Logo" class="logo" />
+    <h1>SmartDua Counter</h1>
 
-<form id="duaForm">
-  <input type="text" placeholder="🌙 Group" name="group" id="group" required />
-  <input type="text" placeholder="💖 Name" name="name" id="user" required />
-  <input type="text" placeholder="👐 Dua" name="dua" id="dua" required />
-  <input type="number" placeholder="🔢 Count" name="count" id="count" required />
-  <input type="text" placeholder="📍 Location" name="location" id="location" />
-  <input type="text" placeholder="📝 Notes" name="notes" id="notes" />
-  <button type="submit" id="submitBtn">Submit Dua</button>
-</form>
+    <form id="duaForm">
+      <input type="text" placeholder="Group Name" id="group" required />
+      <input type="text" placeholder="Your Name" id="name" required />
+      <input type="text" placeholder="Dua" id="dua" required />
+      <input type="number" placeholder="Count" id="count" required />
+      <input type="text" placeholder="Location" id="location" />
+      <input type="text" placeholder="Notes" id="notes" />
 
+      <button type="submit" id="submitBtn">📤 Submit Dua</button>
+    </form>
 
-  <div class="button-group">
-    <button id="refreshBtn">🔄 Refresh Total</button>
+    <button id="refreshTotal">🔄 Refresh Total</button>
+    <div id="totalDisplay"></div>
   </div>
 
-  <div id="totalCount"></div>
-
   <footer>
-    <p>
-      SmartDua Counter™ | Built by Shoiba – Smart Tools for Smart People |
-      <a href="https://smartaipartners.io" target="_blank">https://smartaipartners.io</a>
-      | No ads. No tracking. Just duas.
-    </p>
+    <p>Built by Shoiba – Smart Tools for Smart People | <a href="https://smartaipartners.io" target="_blank">Visit Website</a></p>
   </footer>
 
   <script src="script.js"></script>
