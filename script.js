@@ -12,14 +12,18 @@ document.getElementById("duaForm").addEventListener("submit", async function (e)
     notes: document.getElementById("notes").value,
   };
 
-  try {
-    const response = await fetch(scriptURL, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+ fetch(scriptURL, {
+  method: 'POST',
+  mode: 'no-cors', // ✅ This line is 100% required
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(data),
+})
+.then(() => alert("✅ Dua submitted successfully!"))
+.catch((error) => alert("⚠️ نیٹ ورک یا سرور کی خرابی: Failed to fetch"));
+
+    
 
     if (response.ok) {
       alert("Dua submitted successfully!");
