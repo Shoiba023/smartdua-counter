@@ -10,18 +10,19 @@
 <body>
   <header>
     <img src="assets/logo.png" alt="SmartDua Counter Logo" class="logo" />
-    <h1>SmartDua Counter</h1>
-  </header>
+   <h1>SmartDua Counter</h1>
+</header>
 
-  <form id="duaForm">
-    <input type="text" placeholder="🌙 Group" name="group" required />
-    <input type="text" placeholder="💖 Name" name="name" required />
-    <input type="text" placeholder="👐 Dua" name="dua" required />
-    <input type="number" placeholder="🔢 Count" name="count" required />
-    <input type="text" placeholder="📍 Location" name="location" />
-    <input type="text" placeholder="📝 Notes" name="notes" />
-    <button type="submit" id="submitBtn">Submit Dua</button>
-  </form>
+<form id="duaForm">
+  <input type="text" placeholder="🌙 Group" name="group" id="group" required />
+  <input type="text" placeholder="💖 Name" name="name" id="user" required />
+  <input type="text" placeholder="👐 Dua" name="dua" id="dua" required />
+  <input type="number" placeholder="🔢 Count" name="count" id="count" required />
+  <input type="text" placeholder="📍 Location" name="location" id="location" />
+  <input type="text" placeholder="📝 Notes" name="notes" id="notes" />
+  <button type="submit" id="submitBtn">Submit Dua</button>
+</form>
+
 
   <div class="button-group">
     <button id="refreshBtn">🔄 Refresh Total</button>
