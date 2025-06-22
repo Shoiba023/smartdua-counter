@@ -1,70 +1,43 @@
-const sheetURL = 'https://script.google.com/macros/s/AKfycbwG6EHvvjbk-koZmQh5Fl3PqFHjkFfWOKvFi-mW1Awh7o6N0Ea-Xu3nk5WzzcOpFDJW4Q/exec';
+const scriptURL = "https://script.google.com/macros/s/AKfycbwG6EHvvjbk-koZmQh5Fl3PqFHjkFfWOKvFi-mW1Awh7o6N0Ea-Xu3nk5WzzcOpFDJW4Q/exec"; // <-- Replace this!
 
-// Submit Dua
-document.getElementById("submitBtn").addEventListener("click", async () => {
-  const group = document.getElementById("group").value.trim();
-  const user = document.getElementById("user").value.trim();
-  const dua = document.getElementById("dua").value.trim();
-  const count = parseInt(document.getElementById("count").value.trim()) || 0;
-  const location = document.getElementById("location").value.trim();
-  const notes = document.getElementById("notes").value.trim();
+document.getElementById("duaForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-  // Input validation
-  if (!group || !user || !dua || count <= 0) {
-    alert("براہ کرم تمام خانے درست طریقے سے پُر کریں۔");
-    return;
-  }
+  const data = {
+    group: document.getElementById("group").value,
+    name: document.getElementById("name").value,
+    dua: document.getElementById("dua").value,
+    count: document.getElementById("count").value,
+    location: document.getElementById("location").value,
+    notes: document.getElementById("notes").value,
+  };
 
   try {
-    const response = await fetch(sheetURL, {
-      method: 'POST',
-      body: JSON.stringify({
-        action: "submit",
-        group,
-        user,
-        dua,
-        count,
-        location,
-        notes
-      }),
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
 
-    const result = await response.text();
-    alert(result || "Dua Submitted!");
-    document.getElementById("duaForm").reset();
+    if (response.ok) {
+      alert("Dua submitted successfully!");
+      document.getElementById("duaForm").reset();
+    } else {
+      alert("⚠️ Something went wrong. Please try again.");
+    }
   } catch (error) {
-    alert("⚠️ نیٹ ورک یا سرور کی خرابی: " + error.message);
+    alert("⚠️ نیٹ ورک یا سرور کی خرابی: Failed to fetch");
   }
 });
 
-// Refresh Total Count
-document.getElementById("refreshTotalBtn").addEventListener("click", async () => {
+document.getElementById("refreshTotal").addEventListener("click", async () => {
   try {
-    const res = await fetch(sheetURL + "?action=total");
-    const data = await res.json();
-    document.getElementById("totalDisplay").innerText = `🌟 Total Duas Submitted: ${data.total}`;
+    const response = await fetch(scriptURL);
+    const result = await response.json();
+    document.getElementById("totalDisplay").innerText = `Total Duas: ${result.total}`;
   } catch (error) {
-    alert("⚠️ Total Count Error: " + error.message);
-  }
-});
-
-// Refresh Dashboard Table
-document.getElementById("refreshDashboardBtn").addEventListener("click", async () => {
-  try {
-    const res = await fetch(sheetURL + "?action=dashboard");
-    const data = await res.json();
-    const tbody = document.getElementById("dashboardTableBody");
-    tbody.innerHTML = "";
-
-    data.forEach(row => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `<td>${row.group}</td><td>${row.dua}</td><td>${row.total}</td>`;
-      tbody.appendChild(tr);
-    });
-  } catch (error) {
-    alert("⚠️ Dashboard Error: " + error.message);
+    document.getElementById("totalDisplay").innerText = "⚠️ Unable to load total.";
   }
 });
