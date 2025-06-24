@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbxxcVF6N0EU0h7Hw68o0AU29gIowuwMII24kD-82BI777q2jrfpo_euA533kfbrIZ04Sw/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzBW0FuX69tMg01yYxIX8pAYgg7xKg4Rn5poyTnJIQdRvQL6P0Hc3OgAHw6fr8JcLuV6g/exec";
 
 document.getElementById("duaForm").addEventListener("submit", async function (e) {
   e.preventDefault();
