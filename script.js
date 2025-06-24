@@ -1,4 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbzc_o9QrgqPmg-KH3j82YSHfzQVKqZvgbaeXwHu-sGGhZ2lHwkOvu866D2DpxFlEL5NcQ/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxprOAbkEbJnu2X_Fb8oMERs37tiajfiTdKj650eWI5lXiYHPtaCmfBig7xFzWZQ29d-Q/exec";
 
 document.getElementById("duaForm").addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -15,16 +15,17 @@ document.getElementById("duaForm").addEventListener("submit", async function (e)
   try {
     await fetch(scriptURL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
 
-    alert("✅ Dua submitted successfully!");
+    alert("✅ Your Dua has been submitted successfully!");
     document.getElementById("duaForm").reset();
-
   } catch (error) {
-    alert("⚠️ نیٹ ورک یا سرور کی خرابی: Failed to submit.");
+    alert("❌ Submission failed. Please try again.");
+    console.error("Error!", error.message);
   }
 });
