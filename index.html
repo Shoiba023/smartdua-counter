@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>SmartDua Counter</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <div class="container">
-    <img src="assets/logo.png" alt="SmartDua Logo" class="logo" />
+  <header>
+    <img src="logo.png" alt="SmartDua Logo" class="logo">
     <h1>SmartDua Counter</h1>
+  </header>
 
-    <form id="duaForm">
-      <input type="text" placeholder="Group Name" id="group" required />
-      <input type="text" placeholder="Your Name" id="name" required />
-      <input type="text" placeholder="Dua" id="dua" required />
-      <input type="number" placeholder="Count" id="count" required />
-      <input type="text" placeholder="Location" id="location" />
-      <input type="text" placeholder="Notes" id="notes" />
-
-      <button type="submit" id="submitBtn">📤 Submit Dua</button>
-    </form>
-
-    <button id="refreshTotal">🔄 Refresh Total</button>
-    <div id="totalDisplay"></div>
-  </div>
+  <form id="duaForm">
+    <input type="text" id="group" placeholder="Group Name 🌙" required>
+    <input type="text" id="name" placeholder="Your Name 💖" required>
+    <input type="text" id="dua" placeholder="Dua 🙏" required>
+    <input type="number" id="count" placeholder="Count 🔢" required>
+    <input type="text" id="location" placeholder="Location 📍">
+    <input type="text" id="notes" placeholder="Notes 📝">
+    <button type="submit">Submit Dua</button>
+  </form>
 
   <footer>
-    <p>Built by Shoiba – Smart Tools for Smart People | <a href="https://smartaipartners.io" target="_blank">Visit Website</a></p>
+    <p>Made with 💙 by <a href="https://smartaipartners.io" target="_blank">Smart AI Partners</a></p>
   </footer>
 
   <script src="script.js"></script>
